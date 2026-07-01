@@ -886,6 +886,125 @@
   .chat-send { width: 32px; height: 32px; background: #FEE500; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #3A1D1D; }
   @media (max-width: 900px) { .kakao-section { padding: 64px 24px; } .kakao-inner { grid-template-columns: 1fr; gap: 48px; } }
 
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+     QR코드 섹션
+  ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .qr-section {
+    background: var(--ink);
+    padding: 80px 48px;
+  }
+  .qr-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .qr-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .qr-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .qr-title {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 900;
+    color: #FAF6F0;
+    margin-bottom: 10px;
+  }
+  .qr-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(250,246,240,0.5);
+  }
+  .qr-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .qr-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,162,97,0.2);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .qr-card:hover {
+    border-color: rgba(200,162,97,0.5);
+    background: rgba(255,255,255,0.07);
+  }
+  .qr-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .qr-code-wrap {
+    width: 176px;
+    height: 176px;
+    border-radius: 12px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    background: #fff;
+    padding: 8px;
+  }
+  .qr-code-wrap img {
+    border-radius: 6px;
+    display: block;
+  }
+  .qr-label {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: #FAF6F0;
+    margin-bottom: 6px;
+  }
+  .qr-desc {
+    font-size: 12px;
+    color: rgba(250,246,240,0.45);
+    margin-bottom: 18px;
+  }
+  .qr-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-lt);
+    text-decoration: none;
+    border: 1px solid rgba(200,162,97,0.35);
+    padding: 8px 18px;
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+  .qr-link:hover {
+    background: rgba(200,162,97,0.15);
+    border-color: var(--gold);
+  }
+  .qr-tip {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(250,246,240,0.45);
+    border-top: 1px solid rgba(200,162,97,0.15);
+    padding-top: 32px;
+  }
+  .qr-tip strong { color: var(--gold-lt); font-weight: 600; }
+  @media (max-width: 900px) {
+    .qr-section { padding: 60px 24px; }
+    .qr-cards { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto 40px; }
+  }
+
   /* ── 등장 애니메이션 ── */
   .fade-up {
     opacity: 0;
@@ -1197,6 +1316,73 @@
         💬 카카오 채팅 상담
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ── QR코드 섹션 ── -->
+<section class="qr-section">
+  <div class="qr-inner">
+
+    <div class="qr-header">
+      <div class="qr-eyebrow">Quick Access</div>
+      <h2 class="qr-title">QR코드로 바로 연결하세요</h2>
+      <p class="qr-subtitle">스마트폰 카메라로 스캔하면 바로 이동합니다</p>
+    </div>
+
+    <div class="qr-cards">
+
+      <!-- QR 1: 랜딩페이지 -->
+      <div class="qr-card">
+        <div class="qr-badge" style="background:rgba(31,56,100,0.1);color:#1F3864;">홈페이지</div>
+        <div class="qr-code-wrap" style="border-color:rgba(31,56,100,0.2);">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://sevenpas.github.io/gachidonghaeng&color=1F3864&bgcolor=FAF6F0&margin=8"
+            alt="랜딩페이지 QR코드"
+            width="160" height="160"
+          />
+        </div>
+        <div class="qr-label">가치동행본부</div>
+        <div class="qr-desc">홈페이지 바로가기</div>
+        <a class="qr-link" href="https://sevenpas.github.io/gachidonghaeng" target="_blank">🌐 링크 열기</a>
+      </div>
+
+      <!-- QR 2: 카카오 오픈채팅 -->
+      <div class="qr-card qr-card--kakao">
+        <div class="qr-badge" style="background:rgba(254,229,0,0.3);color:#7A5A00;">카카오 채팅</div>
+        <div class="qr-code-wrap" style="border-color:rgba(254,229,0,0.5);">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://open.kakao.com/o/pydUw79h&color=3A1D1D&bgcolor=FFFDE7&margin=8"
+            alt="카카오 오픈채팅 QR코드"
+            width="160" height="160"
+          />
+        </div>
+        <div class="qr-label">이당애원 화통연구소</div>
+        <div class="qr-desc">카카오 오픈채팅 참여</div>
+        <a class="qr-link" href="https://open.kakao.com/o/pydUw79h" target="_blank">💬 채팅 참여하기</a>
+      </div>
+
+      <!-- QR 3: 상담 예약 폼 -->
+      <div class="qr-card qr-card--form">
+        <div class="qr-badge" style="background:rgba(184,144,58,0.15);color:#7A5A00;">상담 예약</div>
+        <div class="qr-code-wrap" style="border-color:rgba(184,144,58,0.3);">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://docs.google.com/forms/d/e/1FAIpQLSfzIMIeUkJtgqwa3YWitEG7DcK5V0xTj1j_fBx7rKlYoKbk1g/viewform&color=B8903A&bgcolor=FDF9F0&margin=8"
+            alt="상담예약 QR코드"
+            width="160" height="160"
+          />
+        </div>
+        <div class="qr-label">상담 예약 신청서</div>
+        <div class="qr-desc">결혼·가정·성공 상담</div>
+        <a class="qr-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfzIMIeUkJtgqwa3YWitEG7DcK5V0xTj1j_fBx7rKlYoKbk1g/viewform" target="_blank">📋 신청서 작성</a>
+      </div>
+
+    </div>
+
+    <p class="qr-tip">
+      💡 <strong>강의·설교 PPT 마지막 슬라이드</strong>나 <strong>명함 뒷면</strong>에 이 QR코드를 넣으시면<br>
+      청중이 바로 스캔해서 상담 예약까지 연결됩니다.
+    </p>
+
   </div>
 </section>
 
